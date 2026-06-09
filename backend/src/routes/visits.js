@@ -1,9 +1,9 @@
 const express = require('express');
+const { getVisits, createVisit} = require('../controllers/visits.controller')
 
 const visits = express.Router()
 
-visits.get('/',(err,req,res) =>{
-    console.log("got visits called")
-})
+visits.get('/',getVisits);
+visits.post('/',createVisit);
 
 module.exports = visits

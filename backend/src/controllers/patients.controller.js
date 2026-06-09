@@ -1,6 +1,6 @@
 const patientsModel = require('../models/patient.model')
 
-const getPatients = (req,res) =>{
+const getPatients = async (req,res) =>{
     try{
         const result =  await patientsModel.getAll();
         res.json(result);
@@ -10,7 +10,7 @@ const getPatients = (req,res) =>{
     }
 }
 
-const createPatient = (req,res) =>{
+const createPatient = async (req,res) =>{
     try{
         const { name,dob} = req.body;
         if(!name || !dob) 
@@ -21,3 +21,5 @@ const createPatient = (req,res) =>{
         res.status(500).json({error: " some internaero cocciurred"})
     }
 }
+
+module.exports = { getPatients,createPatient}
