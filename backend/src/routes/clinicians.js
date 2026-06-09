@@ -1,9 +1,10 @@
 const express = require('express');
+const {getClinicians,createClinician} = require('../controllers/clinicians.controller')
 
 const clinicians = express.Router()
 
-clinicians.get('/',(err,req,res) =>{
-    console.log("got clicians called")
-})
+clinicians.get('/',getClinicians)
+clinicians.post('/',createClinician)
+
 
 module.exports = clinicians
