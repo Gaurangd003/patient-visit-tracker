@@ -7,7 +7,8 @@ const usePatients = () => {
         queryFn: async () => {
             const res = await fetch('http://localhost:3000/patients')
             return res.json();
-        }
+        },
+         refetchOnWindowFocus: false,
     })
     return result;
 }

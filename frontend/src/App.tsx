@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
-import Overview from './components/overview/overview';
+import Overview from './pages/overview';
 import { lazy } from 'react';
 import {
   QueryClient,

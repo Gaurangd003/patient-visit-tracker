@@ -15,7 +15,8 @@ const useVisits = () => {
             const res = await fetch('http://localhost:3000/visits');
             if (!res.ok) throw new Error(await res.text());
             return res.json();
-        }
+        },
+         refetchOnWindowFocus: false
     });
 };
 

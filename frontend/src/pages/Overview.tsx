@@ -1,18 +1,18 @@
 
-import visit_img from "../../assets/Visit.svg";
-import clinician_img from "../../assets/Clinician.svg";
-import patient_img from "../../assets/Patient.svg";
-import VisitsTable from "../tables/VisitsTable";
+import visit_img from "../assets/Visit.svg";
+import clinician_img from "../assets/Clinician.svg";
+import patient_img from "../assets/Patient.svg";
+import VisitsTable from "../components/tables/VisitsTable";
 import { Box, Button, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import CountCard from "../card/CountCard";
-import CreateVisitModal from "../modal/CreateVisitModal";
+import CountCard from "../components/card/CountCard";
+import CreateVisitModal from "../components/modal/CreateVisitModal";
 
 import AddIcon from '@mui/icons-material/Add';
 import { useState } from "react";
-import { useClinicians } from "../../hooks/useClinicians";
-import { usePatients } from "../../hooks/usePatients";
-import { useVisits } from "../../hooks/useVisits";
+import { useClinicians } from "../hooks/useClinicians";
+import { usePatients } from "../hooks/usePatients";
+import { useVisits } from "../hooks/useVisits";
 
 
 const OverView = () => {

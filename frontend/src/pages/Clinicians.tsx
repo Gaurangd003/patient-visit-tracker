@@ -1,7 +1,7 @@
 
 import { Table, TableBody, TableHead, TableRow, TableCell, TableContainer, Fab } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
-import { useClinicians, useCreateClinician } from "../hooks/useClinicians";
+import { useClinicians } from "../hooks/useClinicians";
 import CreateClinicianModal from "../components/modal/CreateClinicianModal";
 import { useState } from "react";
 
