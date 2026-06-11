@@ -3,19 +3,19 @@
 export interface Clinician {
   id: number;
   name: string;
-  speciality: string;
+  specialty: string;
 }
 
 export interface Patient {
   id: number;
   name: string;
-  dateOfBirth: string;
+  date_of_birth: string;
 }
 
 export interface Visit {
   id: number;
-  clinician: number;
-  patient: number;
-  visitedAt: string;
+  clinician_name: string;
+  patient_name: string;
+  visited_at: string;
   notes?: string;
 }
