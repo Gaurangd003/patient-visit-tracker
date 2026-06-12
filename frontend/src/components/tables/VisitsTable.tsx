@@ -14,10 +14,10 @@ import { NavLink } from "react-router-dom";
 
 interface VisitsTableProps {
   visits: Visit[];
-  ViewAll?: boolean;
+  viewAll?: boolean;
 }
 
-const VisitsTable = ({ visits, ViewAll }: VisitsTableProps) => {
+const VisitsTable = ({ visits, viewAll }: VisitsTableProps) => {
   const [selectedPatient, setSelectedPatient] = useState("");
   const [selectedClinician, setSelectedClinician] = useState("");
 
@@ -77,10 +77,11 @@ const VisitsTable = ({ visits, ViewAll }: VisitsTableProps) => {
             ))}
           </Select>
 
-          { !ViewAll ? <></> 
-          :(<Button size="small" component={NavLink} sx={{ textTransform: "none",color:"#0a4c2c",fontWeight:"500" }} to="/visits">
-            View All
-          </Button>)}
+          {viewAll && (
+            <Button size="small" component={NavLink} sx={{ textTransform: "none", color: "#0a4c2c", fontWeight: "500" }} to="/visits">
+              View All
+            </Button>
+          )}
         </Box>
       </Box>
 
@@ -103,7 +104,7 @@ const VisitsTable = ({ visits, ViewAll }: VisitsTableProps) => {
               </TableCell>
             </TableRow>
           ) : (
-            filteredVisits.slice(0, ViewAll ? 5 : filteredVisits.length).map((visit) => (
+            filteredVisits.slice(0, viewAll ? 5 : filteredVisits.length).map((visit) => (
               <TableRow key={visit.id} hover>
                 <TableCell>{visit.id}</TableCell>
                 <TableCell>{visit.clinician_name}</TableCell>

@@ -161,13 +161,13 @@ export default function AppLayout() {
       <Box
         component="main"
         sx={{
+          mt: 6,
           flexGrow: 1,
           p: { xs: 2, sm: 3 },
           width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
           minWidth: 0,
         }}
       >
-        <Toolbar />
         <Outlet />   {/* React Router renders the matched page here */}
       </Box>
     </Box>

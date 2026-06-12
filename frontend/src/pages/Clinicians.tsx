@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const Clinicians = () => {
   const result = useClinicians();
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
   return <>
     <TableContainer >

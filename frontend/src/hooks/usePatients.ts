@@ -16,7 +16,7 @@ const usePatients = () => {
 const useCreatePatient = () => {
     const queryClient = useQueryClient();
     const result = useMutation({
-        mutationFn: async (bodyData: { name: string; date_of_birth: string }) => {
+        mutationFn: async (bodyData: Omit<Patient, "id">) => {
             const res = await fetch('http://localhost:3000/patients', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

@@ -23,7 +23,7 @@ const useVisits = () => {
 const useCreateVisit = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: async (bodyData: { clinician: Clinician | null; patient: Patient | null; visited_at: string; notes: string }) => {
+        mutationFn: async (bodyData: { clinician: Clinician; patient: Patient; visited_at: string; notes: string }) => {
             const res = await fetch('http://localhost:3000/visits', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -32,7 +32,7 @@ const useCreateVisit = () => {
                     patient_id:   bodyData.patient?.id,
                     visited_at:   bodyData.visited_at,
                     notes:        bodyData.notes,
-                } as CreateVisitBody)
+                } satisfies CreateVisitBody)
             });
             if (!res.ok) throw new Error(await res.text());
             return res.json();

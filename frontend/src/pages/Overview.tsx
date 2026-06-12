@@ -16,13 +16,13 @@ import { useVisits } from "../hooks/useVisits";
 
 
 const OverView = () => {
-  const[open,setOpen] = useState<boolean>(false);
+  const[open,setOpen] = useState(false);
   const clinician_data = useClinicians();
   const patients_data = usePatients(); 
   const visits_data = useVisits();
   return (
-    <>
-      <Box component="div" sx={{
+
+      <Box sx={{
         display: "grid",
         gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, 
         p: 2,
@@ -62,11 +62,10 @@ const OverView = () => {
 
         {/*Recent Visits Table*/}
         <Box sx={{ gridColumn: "span 3" }}>
-          <VisitsTable visits={visits_data.data ?? []} ViewAll={true }/>
+          <VisitsTable visits={visits_data.data ?? []} viewAll={true }/>
         </Box>
         <CreateVisitModal open={open} onClose={() => setOpen(false)} clinicians={clinician_data.data ?? []} patients={patients_data.data ?? []}/>
       </Box>
-    </>
   );
 }
 

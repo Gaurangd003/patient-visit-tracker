@@ -11,7 +11,7 @@ const Visits = () => {
   const clinician_data = useClinicians();
   const patients_data = usePatients(); 
   const visits_data = useVisits();
-  const [open,setOpen] = useState<boolean>(false);
+  const [open,setOpen] = useState(false);
   return <>
   <VisitsTable visits={visits_data.data ?? []}/>
       <Fab aria-label="add" onClick={() => setOpen(true)} sx={{ position: "absolute", right: "2%", bottom : "5%"}}>

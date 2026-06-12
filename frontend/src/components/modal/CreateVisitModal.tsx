@@ -16,7 +16,14 @@ interface CreateVisitModalProps {
     patients: Patient[];
 }
 
-const EMPTY_FORM = {
+interface VisitFormState {
+    clinician:  Clinician | null;
+    patient:    Patient   | null;
+    visited_at: string;
+    notes:      string;
+}
+
+const EMPTY_FORM : VisitFormState = {
     clinician: null as Clinician | null,
     patient:   null as Patient  | null,
     visited_at: "",
@@ -24,7 +31,7 @@ const EMPTY_FORM = {
 };
 
 const CreateVisitModal = ({ open, onClose, clinicians, patients }: CreateVisitModalProps) => {
-    const [form, setForm] = useState(EMPTY_FORM);
+    const [form, setForm] = useState<VisitFormState>(EMPTY_FORM);
     const { mutate, isPending, isSuccess, isError } = useCreateVisit();
 
     const handleClose = () => { setForm(EMPTY_FORM); onClose(); };
@@ -124,7 +131,7 @@ const CreateVisitModal = ({ open, onClose, clinicians, patients }: CreateVisitMo
                 <Button
                     onClick={handleSubmit}
                     variant="contained"
-                    disabled={Boolean(!form.clinician || !form.patient || !form.visited_at)}
+                    disabled={!form.clinician || !form.patient || !form.visited_at}
                     sx={{
                         textTransform: "none", fontWeight: 600,
                         bgcolor: "#15663f", borderRadius: 2, px: 3,

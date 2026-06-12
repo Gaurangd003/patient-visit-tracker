@@ -8,7 +8,12 @@ import CloseIcon from "@mui/icons-material/Close";
 import PeopleIcon from "@mui/icons-material/People";
 import { useCreateClinician } from "../../hooks/useClinicians";
 
-const EMPTY_FORM = {
+interface ClinicianFormState {
+    name: string;
+    specialty: string;
+}
+
+const EMPTY_FORM: ClinicianFormState = {
     name: "",
     specialty: "",
 };
@@ -19,7 +24,7 @@ interface CreateClinicianModalProps {
 }
 
 const CreateClinicianModal = ({ open, onClose }: CreateClinicianModalProps) => {
-    const [form, setForm] = useState(EMPTY_FORM);
+    const [form, setForm] = useState<ClinicianFormState>(EMPTY_FORM);
     const { mutate, isPending, isSuccess, isError } = useCreateClinician();
 
     const handleClose = () => { setForm(EMPTY_FORM); onClose(); };
