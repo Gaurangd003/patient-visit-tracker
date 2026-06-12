@@ -70,7 +70,7 @@ Create a `.env` file in the backend directory:
 
 ```env
 DATABASE_URL=your_neon_connection_string
-PORT=5000
+PORT=3000
 ```
 
 ## API Endpoints
