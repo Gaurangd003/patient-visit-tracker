@@ -1,7 +1,7 @@
 const pool = require('../config/db')
 
 const getAll = async () =>{
-        const result = await pool.query(`select * from patients`);
+        const result = await pool.query(`SELECT id, name, date_of_birth::date FROM patients`);
         return result.rows;
 }
  const create = async (name,date_of_birth) =>{
